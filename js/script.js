@@ -13,34 +13,38 @@ generateFiveRandomNumbers();
 // console.log(numbers);
 // console.log(numbers.length);
 //  Mostrare array
-
 for (let i = 0; i < 5; i++) {
   numberList.innerHTML += `<li>${numbers[i]}</li>`;
 }
 // console.log(numberList);
 
 // far partire un timer
-
-startTimer();
-
-function timer() {
-  let count = 30;
-  countDown.innerText = count;
-  timer = setInterval(() => {
-    countDown.innerText = --count;
-    if (count < 1) {
-      clearInterval(timer);
-    }
-  }, 1000);
-  return timer;
-}
+timer();
 
 // nascondere numeri
-
 // mostrare form con input
+
+// simonSaysPlayerTurn
+
+setTimeout(() => {
+  numberList.classList.add("d-none");
+  formElement.classList.remove("d-none");
+}, 3000);
 
 // Mandare input in un array
 
+function storeInput() {
+  formElement.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const userInput = document.getElementsByClassName("form-control");
+    const userNumbers = [];
+    for (let i = 0; i < userInput.length; i++) {
+      userNumbers.push(userInput[i].value);
+    }
+    console.log(userNumbers);
+  });
+}
+storeInput();
 // Confrontare l'array dei numeri casuali con quelli trovati dall'utente
 
 // Salvare in array i numeri in comune
@@ -52,7 +56,7 @@ function timer() {
 // FUNCTIONS
 function generateRandomNumber(max) {
   return Math.floor(Math.random() * max);
-} // console.log(generateFiveRandomNumbers(50));
+}
 
 function generateFiveRandomNumbers() {
   for (let i = 0; i < 5; i++) {
@@ -60,4 +64,15 @@ function generateFiveRandomNumbers() {
     numbers.push(number);
   }
   return numbers;
+}
+
+function timer() {
+  let count = 30;
+  countDown.innerText = count;
+  timer = setInterval(() => {
+    countDown.innerText = --count;
+    if (count < 1) {
+      clearInterval(timer);
+    }
+  }, 1000);
 }
