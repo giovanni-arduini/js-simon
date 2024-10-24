@@ -4,6 +4,8 @@ const countDown = document.getElementById("countdown");
 let numberList = document.querySelector("ul");
 const formElement = document.getElementById("answers-form");
 let numbers = [];
+let userNumbers = [];
+let guessedNumbers = [];
 
 // GENERA 5 NUMERI CASUALI
 //  FOR 5 volte, genera numero casuale
@@ -16,7 +18,7 @@ generateFiveRandomNumbers();
 for (let i = 0; i < 5; i++) {
   numberList.innerHTML += `<li>${numbers[i]}</li>`;
 }
-// console.log(numberList);
+console.log(numbers);
 
 // far partire un timer
 timer();
@@ -33,7 +35,7 @@ setTimeout(() => {
 
 // Mandare input in un array
 
-function storeInput() {
+function userInputCheck() {
   formElement.addEventListener("submit", (event) => {
     event.preventDefault();
     const userInput = document.getElementsByClassName("form-control");
@@ -42,11 +44,20 @@ function storeInput() {
       userNumbers.push(userInput[i].value);
     }
     console.log(userNumbers);
+    for (let i = 0; i < 6; i++) {
+      if (numbers.toString().includes(userNumbers[i])) {
+        guessedNumbers.push(userNumbers[i]);
+      } else {
+        guessedNumbers = guessedNumbers;
+      }
+      console.log(guessedNumbers);
+    }
   });
 }
-storeInput();
-// Confrontare l'array dei numeri casuali con quelli trovati dall'utente
 
+userInputCheck();
+
+// Confrontare l'array dei numeri casuali con quelli trovati dall'utente
 // Salvare in array i numeri in comune
 
 // OUTPUT
