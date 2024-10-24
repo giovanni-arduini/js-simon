@@ -1,5 +1,9 @@
 console.log("Simon says");
 
+const countDown = document.getElementById("countdown");
+const numbers = document.getElementById("numbers-list");
+const formElement = document.getElementById("answers-form");
+
 // GENERA 5 NUMERI CASUALI
 //  FOR 5 volte, genera numero casuale
 
