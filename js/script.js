@@ -1,23 +1,23 @@
 console.log("Simon says");
 
 const countDown = document.getElementById("countdown");
-let numbers = document.getElementById("numbers-list");
+let numberList = document.querySelector("ul");
 const formElement = document.getElementById("answers-form");
+let numbers = [];
 
 // GENERA 5 NUMERI CASUALI
 //  FOR 5 volte, genera numero casuale
-
-numbers = [];
-for (let i = 0; i < 5; i++) {
-  const number = generateRandomNumbers(50);
-  numbers.push(number);
-}
-// console.log(numbers);
-
 //  Mettere numero casuale in array
 
+generateFiveRandomNumbers();
+console.log(numbers);
+console.log(numbers.length);
 //  Mostrare array
 
+for (let i = 0; i < 5; i++) {
+  numberList.innerHTML += `<li>${numbers[i]}</li>`;
+}
+console.log(numberList);
 // far partire un timer
 
 // nascondere numeri
@@ -35,6 +35,14 @@ for (let i = 0; i < 5; i++) {
 // Quali? (posizione elementi in array)
 
 // FUNCTIONS
-function generateRandomNumbers(max) {
+function generateRandomNumber(max) {
   return Math.floor(Math.random() * max);
 } // console.log(generateFiveRandomNumbers(50));
+
+function generateFiveRandomNumbers() {
+  for (let i = 0; i < 5; i++) {
+    const number = generateRandomNumber(50);
+    numbers.push(number);
+  }
+  return numbers;
+}
