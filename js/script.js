@@ -36,6 +36,40 @@ setTimeout(() => {
 
 // Mandare input in un array
 
+userInputCheck();
+
+// Confrontare l'array dei numeri casuali con quelli trovati dall'utente
+// Salvare in array i numeri in comune
+
+// OUTPUT
+// Quanti numeri hai trovato? (lunghezza nuovo array)
+// Quali? (posizione elementi in array)
+
+// FUNCTIONS
+function generateRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function generateFiveRandomNumbers() {
+  for (let i = 0; i < 5; i++) {
+    const number = generateRandomNumber(50);
+    // if(!number.includes(generateRandomNumber(50)))
+    numbers.push(number);
+  }
+  return numbers;
+}
+
+function timer() {
+  let count = 30;
+  countDown.innerText = count;
+  timer = setInterval(() => {
+    countDown.innerText = --count;
+    if (count < 1) {
+      clearInterval(timer);
+    }
+  }, 1000);
+}
+
 function userInputCheck() {
   formElement.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -55,39 +89,6 @@ function userInputCheck() {
     }
     message.innerText = `Hai indovinato ${
       guessedNumbers.length
-    } numeri: ${guessedNumbers.toString()}`;
+    } numeri su 5: ${guessedNumbers.toString()}`;
   });
-}
-
-userInputCheck();
-
-// Confrontare l'array dei numeri casuali con quelli trovati dall'utente
-// Salvare in array i numeri in comune
-
-// OUTPUT
-// Quanti numeri hai trovato? (lunghezza nuovo array)
-// Quali? (posizione elementi in array)
-
-// FUNCTIONS
-function generateRandomNumber(max) {
-  return Math.floor(Math.random() * max);
-}
-
-function generateFiveRandomNumbers() {
-  for (let i = 0; i < 5; i++) {
-    const number = generateRandomNumber(50);
-    numbers.push(number);
-  }
-  return numbers;
-}
-
-function timer() {
-  let count = 30;
-  countDown.innerText = count;
-  timer = setInterval(() => {
-    countDown.innerText = --count;
-    if (count < 1) {
-      clearInterval(timer);
-    }
-  }, 1000);
 }
