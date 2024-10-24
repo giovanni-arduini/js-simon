@@ -10,15 +10,30 @@ let numbers = [];
 //  Mettere numero casuale in array
 
 generateFiveRandomNumbers();
-console.log(numbers);
-console.log(numbers.length);
+// console.log(numbers);
+// console.log(numbers.length);
 //  Mostrare array
 
 for (let i = 0; i < 5; i++) {
   numberList.innerHTML += `<li>${numbers[i]}</li>`;
 }
-console.log(numberList);
+// console.log(numberList);
+
 // far partire un timer
+
+startTimer();
+
+function timer() {
+  let count = 30;
+  countDown.innerText = count;
+  timer = setInterval(() => {
+    countDown.innerText = --count;
+    if (count < 1) {
+      clearInterval(timer);
+    }
+  }, 1000);
+  return timer;
+}
 
 // nascondere numeri
 
