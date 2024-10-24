@@ -3,6 +3,7 @@ console.log("Simon says");
 const countDown = document.getElementById("countdown");
 let numberList = document.querySelector("ul");
 const formElement = document.getElementById("answers-form");
+let message = document.getElementById("message");
 let numbers = [];
 let userNumbers = [];
 let guessedNumbers = [];
@@ -45,13 +46,16 @@ function userInputCheck() {
     }
     console.log(userNumbers);
     for (let i = 0; i < 6; i++) {
-      if (numbers.toString().includes(userNumbers[i])) {
+      if (numbers.includes(parseInt(userNumbers[i]))) {
         guessedNumbers.push(userNumbers[i]);
       } else {
         guessedNumbers = guessedNumbers;
       }
       console.log(guessedNumbers);
     }
+    message.innerText = `Hai indovinato ${
+      guessedNumbers.length
+    } numeri: ${guessedNumbers.toString()}`;
   });
 }
 
