@@ -7,6 +7,10 @@ const formElement = document.getElementById("answers-form");
 // GENERA 5 NUMERI CASUALI
 //  FOR 5 volte, genera numero casuale
 
+function generateFiveRandomNumbers(max) {
+  return Math.floor(Math.random() * max);
+} // console.log(generateFiveRandomNumbers(50));
+
 //  Mettere numero casuale in array
 
 //  Mostrare array
